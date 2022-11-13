@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+    font-family:sans-serif;
+    margin: 0;
+}
+html {
+    background: url("images/background1.jpg") no-repeat;
+    background-size: cover;
+}
+.backdrop {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+header, footer {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+h1 {
+    display: block;
+    float: left;
+    min-width: 200px;
+    width: 200px;
+    line-height: 100px;
+    text-align: center;
+    
+}
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100px;
+    box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.2);
+}
+main {
+    min-height: 100vh;
+    padding-top: 100px;
+}
+.nav {
+    display: flex;
+    flex-direction: column;
+    clear: both;
+    list-style-type: none;
+    padding: 0px;
+    max-height: 0;
+    transition: max-height .5s ease;
+    overflow: hidden;
+}
+.nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    height: 60px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.activePage a{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.nav a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.nav a:active {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.menuBtn {
+    display: none;
+}
+.menuIcon {
+    float: right;
+    padding: 25px;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+}
+.navIcn {
+    --menubars-height: 5px; /*change menu icon bars width here to automatically adjust other parameters*/
+    background-color: white;
+    display: block;
+    height: var(--menubars-height);
+    width: 100%;
+    border-radius: calc(var(--menubars-height) / 2);
+    position: relative;
+    transition: all .5s ease-in-out;
+}
+.mid {
+    top: calc((50px / 2) - (var(--menubars-height) / 2) - var(--menubars-height));
+}
+.bot {
+    top: calc(50px - (3 * var(--menubars-height)));
+}
+.menuBtn:checked ~ .nav{
+    max-height: calc(60px * 6);
+}
+.menuBtn:checked ~ .menuIcon .top {
+    transform: translateY(22.5px) scale(0,0);
+}
+.menuBtn:checked ~ .menuIcon .bot {
+    transform: translateY(-22.5px) scale(0,0);
+}
+@media only screen and (min-width:768px) {
+    .nav {
+        flex-direction: row;
+        float: right;
+        clear: none;
+        max-height: none;
+        width: calc(100% - 200px);
+        justify-content: end;
+    }
+    .nav li {
+        flex: 1;
+        max-width: 175px;
+    }
+    .nav a {
+        height: 100px;
+    }
+    .menuIcon {
+        display: none;
+    }
+}
