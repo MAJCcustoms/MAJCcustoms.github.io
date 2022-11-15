@@ -159,7 +159,7 @@ main {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     padding: 10px;
-    margin-bottom: -10px;
+    margin-bottom: 15px;
     box-shadow: var(--content-shadow);
     position: relative;
 }
@@ -201,13 +201,14 @@ main {
     height: 100px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    color: white;
-    font-size: 2em;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 3em;
     text-shadow: var(--content-shadow);
     cursor: pointer;
     top: 52%;
     translate: 0 -50%;
     padding: 0px;
+    padding-bottom: 5px;
     object-fit: cover;
     animation: galBtnAni 1s ease-out;
     -ms-animation: galBtnAni 1s ease-out;
@@ -237,10 +238,7 @@ main {
     display: none;
 }
 .activeimg {
-    animation-name: galTransition;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+    animation: galTransition 1s ease-out forwards;
     display: block;
 }
 @keyframes galBtnAni {
