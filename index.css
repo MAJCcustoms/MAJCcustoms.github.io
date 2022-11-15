@@ -239,6 +239,9 @@ main {
 }
 .activeimg {
     animation: galTransition 1s ease-out forwards;
+    -ms-animation: galTransition 1s ease-out forwards;
+    -moz-animation: galTransition 1s ease-out forwards;
+    -webkit-animation: galTransition 1s ease-out forwards;
     display: block;
 }
 @keyframes galBtnAni {
