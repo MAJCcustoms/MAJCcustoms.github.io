@@ -142,7 +142,7 @@ main {
 }
 .content h2 {
     text-align: center;
-    font-size: 2.5em;
+    font-size: 1.5em;
     text-shadow: var(--content-shadow);
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
@@ -152,7 +152,7 @@ main {
     margin-top: -10px;
 }
 .content p {
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-indent: 80px;
 }
 #imgGallery {
@@ -169,7 +169,7 @@ main {
 #imgGallery h3 {
     color: white;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     text-shadow: var(--content-shadow);
     margin-bottom: 20px;
 }
@@ -208,7 +208,6 @@ main {
     top: 52%;
     translate: 0 -50%;
     padding: 0px;
-    padding-bottom: 5px;
     object-fit: cover;
     animation: galBtnAni 1s ease-out;
     -ms-animation: galBtnAni 1s ease-out;
