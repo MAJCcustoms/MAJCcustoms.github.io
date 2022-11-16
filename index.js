@@ -11,16 +11,15 @@ let currentIndex = 1;
 let previousIndex = currentIndex;
 let hasChanged = 0;
 
-cycleImg();
+while (hasChanged == 0) {
+    cycleImg();
+}
 
 function cycleImg() {
     setTimeout( function () {
         previousIndex = currentIndex;
         currentIndex += 1;
         showImage();
-        if (hasChanged == 0) {
-            cycleImg();
-        }
     }, 3000);
 }
 
