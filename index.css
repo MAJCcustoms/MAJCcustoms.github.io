@@ -13,6 +13,7 @@ html {
 }
 .backdrop {
     background-color: rgba(255, 255, 255, 0.5);
+    min-height: 100vh;
 }
 header, footer {
     background-color: rgba(0, 0, 0, 0.6);
@@ -37,7 +38,11 @@ h1 {
     text-align: center;
     
 }
+body {
+    position: relative;
+}
 footer {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,7 +134,6 @@ main {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    min-height: calc(100vh - 195px);
 }
 .content>* {
     margin: 10px;
@@ -243,6 +247,27 @@ main {
     -webkit-animation: galTransition 1s ease-out forwards;
     display: block;
 }
+.content article {
+    animation: loadFade 1s ease-out;
+    -ms-animation: loadFade 1s ease-out;
+    -moz-animation: loadFade 1s ease-out;
+    -webkit-animation: loadFade 1s ease-out;
+}
+@keyframes loadFade {
+    from {
+        opacity: 0;
+        top: 30px;
+        max-height: 0px;
+    }
+    50% {
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 100px;
+        max-height: 100vh;
+    }
+}
 @keyframes galBtnAni {
     from {
         opacity: 0;
@@ -298,5 +323,18 @@ main {
         margin-top: -10px;
         position: sticky;
         top: 85px;
+    }
+    .contentColumn p {
+        font-size: 1.5em;
+    }
+    .contentColumn h2 {
+        font-size: 2em;
+    }
+    #imgGallery h3 {
+        font-size: 2em;
+    }
+    #imgGallery a {
+        font-size: 1em;
+        border-radius: 50%;
     }
 }

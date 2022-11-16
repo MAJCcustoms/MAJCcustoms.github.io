@@ -10,6 +10,19 @@ for (let x in imgsresW){
 let currentIndex = 1;
 let previousIndex = currentIndex;
 
+cycleImg();
+
+function cycleImg(n) {
+    if (n == null) {
+        setTimeout( function () {
+            previousIndex = currentIndex;
+            currentIndex += 1;
+            showImage();
+            cycleImg();
+        }, 3000);
+    }
+}
+
 function changeImage(n) {
     previousIndex = currentIndex;
     currentIndex += n;
@@ -34,7 +47,9 @@ function showImage() {
     cssvar.setProperty("--currentImage-height", currentVarH);
     cssvar.setProperty("--nextImage-height", nextVarH);
 
-    images[previousIndex - 1].classList.toggle("activeimg");
+    for (i = 0; i < images.length; i++) {
+        images[i].classList.remove("activeimg");
+      }
     images[currentIndex - 1].classList.toggle("activeimg");
 
     console.log(previousIndex, currentIndex, currentImgW, imgresMultiplier[previousIndex - 1], imgresMultiplier[currentIndex - 1], currentVarH, nextVarH);
