@@ -9,23 +9,25 @@ for (let x in imgsresW){
 
 let currentIndex = 1;
 let previousIndex = currentIndex;
+let hasChanged = 0;
 
 cycleImg();
 
-function cycleImg(n) {
-    if (n == null) {
-        setTimeout( function () {
-            previousIndex = currentIndex;
-            currentIndex += 1;
-            showImage();
+function cycleImg() {
+    setTimeout( function () {
+        previousIndex = currentIndex;
+        currentIndex += 1;
+        showImage();
+        if (hasChanged == 0) {
             cycleImg();
-        }, 3000);
-    }
+        }
+    }, 3000);
 }
 
 function changeImage(n) {
     previousIndex = currentIndex;
     currentIndex += n;
+    hasChanged = n;
     showImage();
 }
 
