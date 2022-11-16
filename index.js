@@ -11,9 +11,8 @@ let currentIndex = 1;
 let previousIndex = currentIndex;
 let hasChanged = 0;
 
-while (hasChanged == 0) {
-    cycleImg();
-}
+cycleImg();
+
 
 function cycleImg() {
     setTimeout( function () {
