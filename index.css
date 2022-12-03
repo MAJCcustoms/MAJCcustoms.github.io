@@ -34,6 +34,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    height: var(--header-height);
+    display: flex;
     z-index: 99;
 }
 
@@ -58,11 +60,22 @@ footer {
     font-size: .75em;
 }
 
+.logo {
+    height: var(--header-height);
+    margin: 0;
+    padding: 10px;
+    display: block;
+}
+
+.logo img {
+    height: 100%;
+}
+
 h1 {
     margin: 0;
-    display: inline-block;
+    margin-left: 10px;
+    display: block;
     line-height: var(--header-height);
-    margin-left: 20px;
 }
 
 .menuBtn {
@@ -77,6 +90,7 @@ h1 {
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
+    margin-left: auto;
 }
 
 .menuIcn {
