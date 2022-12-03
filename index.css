@@ -3,6 +3,7 @@
     --footer-height: 75px;
     --element-color: rgba(255, 255, 255, 0.8);
     --element-shadow-color: rgba(0, 0, 0, .2);
+    --navLinkHeight: 50px;
 }
 
 * {
@@ -34,9 +35,12 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--header-height);
-    display: flex;
     z-index: 99;
+}
+
+.header {
+    display: flex;
+    height: var(--header-height);
 }
 
 footer {
@@ -136,22 +140,13 @@ h1 {
 }
 
 .nav {
-    --navLinkHeight: 50px;
     margin: 0;
     padding: 0;
-    width: 100%;
-    position: fixed;
     overflow: hidden;
-    z-index: 98;
-    top: var(--header-height);
-    left: 0;
+    z-index: 99;
     max-height: 0px;
     opacity: 0%;
-    background-color: var(--element-color);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    -moz-backdrop-filter: blur(5px);
-    -ms-backdrop-filter: blur(5px);
+    line-height: 0px;
     transition: all .5s ease-out;
 }
 
@@ -166,7 +161,7 @@ h1 {
 .navOut {
     max-height: calc(var(--navLinkHeight) * 5);
     opacity: 100%;
-    box-shadow: 0px 5px 5px var(--element-shadow-color);
+    line-height: var(--navLinkHeight);
 }
 
 .nav a {
@@ -174,7 +169,6 @@ h1 {
     text-align: center;
     color: black;
     display: block;
-    line-height: var(--navLinkHeight);
 }
 
 main {
@@ -204,45 +198,42 @@ main::-webkit-scrollbar {
 
 .scrollArrow {
     rotate: 90deg;
-    font-size: 1.5em;
-}
-
-.mainFadeBot {
+    font-size: 4em;
+    font-weight:900;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    position:fixed;
+    position: fixed;
     left: 25px;
     right: 25px;
     margin-bottom: 15px;
-    padding: 10px;
     bottom: calc(var(--footer-height) + 10px);
     z-index: 97;
-    font-weight:900;
-    font-size: 1.25em;
-    background: radial-gradient(rgba(221, 221, 221, 0.8) 40%, transparent)
+    animation: scrollWiggle 2s ease-in-out;
+    -ms-animation: scrollWiggle 2s ease-in-out;
+    -moz-animation: scrollWiggle 2s ease-in-out;
+    -webkit-animation: scrollWiggle 2s ease-in-out;
+    animation-iteration-count: infinite;
 }
 
-.mainFadeBot * {
-    padding: 0;
-    margin: 0;
-}
-
-.mainFadeTop {
-    display: none;
-    position: fixed;
-    left: 10px;
-    right: 10px;
-    top: calc(var(--header-height) + 10px);
-    height: 30px;
-    border-radius: 20px 20px 0px 0px;
-    z-index: 97;
-    background: linear-gradient(rgb(255, 255, 255) 15px, transparent);
-}
 h2 {
     text-align: center;
     margin: 0px;
     margin-bottom: 10px;
     font-size: 2em;
+}
+
+@keyframes scrollWiggle {
+    25% {
+        transform: translateX(5px);
+        -webkit-transform: translateX(5px);
+        -moz-transform: translateX(5px);
+        -ms-transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+        -webkit-transform: translateX(-5px);
+        -moz-transform: translateX(-5px);
+        -ms-transform: translateX(-5px);
+    }
 }
