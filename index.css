@@ -4,6 +4,8 @@
     --element-color: rgba(255, 255, 255, 0.8);
     --element-shadow-color: rgba(0, 0, 0, .2);
     --navLinkHeight: 50px;
+    --highlight-background: rgba(0, 0, 0, 0.2);
+    --double-highlight: rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -139,6 +141,25 @@ h1 {
     rotate: -45deg;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+    background-color: var(--highlight-background);
+    padding: 2.5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 10px;
+}
+
+a:hover {
+    background-color: var(--double-highlight);
+}
+
+a:active {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
 .nav {
     margin: 0;
     padding: 0;
@@ -165,10 +186,25 @@ h1 {
 }
 
 .nav a {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0px;
     text-decoration: none;
     text-align: center;
     color: black;
     display: block;
+}
+
+.activepage a {
+    background-color: var(--highlight-background);
+}
+
+.nav a:hover {
+    background-color: var(--highlight-background);
+}
+
+.nav a:active {
+    background-color: var(--double-highlight);
 }
 
 main {
@@ -224,6 +260,14 @@ main::-webkit-scrollbar {
     -webkit-transform: translateX(5px);
     -moz-transform: translateX(5px);
     -ms-transform: translateX(5px);
+}
+
+.scrollArrowGone {
+    opacity: 0%;
+    transform: translateX(30px);
+    -webkit-transform: translateX(30px);
+    -moz-transform: translateX(30px);
+    -ms-transform: translateX(30px);
 }
 
 h2 {
