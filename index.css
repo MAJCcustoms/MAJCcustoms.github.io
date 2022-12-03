@@ -10,6 +10,10 @@
     font-family: sans-serif;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     background: url(resources/Images/Site/background.jpg) no-repeat;
     background-size: cover;
