@@ -196,7 +196,7 @@ main::-webkit-scrollbar {
     display: none;
 }
 
-.scrollArrow {
+#scrollArrow {
     rotate: 90deg;
     font-size: 4em;
     font-weight:900;
@@ -209,11 +209,21 @@ main::-webkit-scrollbar {
     margin-bottom: 15px;
     bottom: calc(var(--footer-height) + 10px);
     z-index: 97;
-    animation: scrollWiggle 2s ease-in-out;
-    -ms-animation: scrollWiggle 2s ease-in-out;
-    -moz-animation: scrollWiggle 2s ease-in-out;
-    -webkit-animation: scrollWiggle 2s ease-in-out;
-    animation-iteration-count: infinite;
+    transition: all 1.5s ease-in-out;
+}
+
+.scrollArrowUp {
+    transform: translateX(-5px);
+    -webkit-transform: translateX(-5px);
+    -moz-transform: translateX(-5px);
+    -ms-transform: translateX(-5px);
+}
+
+.scrollArrowDown {
+    transform: translateX(5px);
+    -webkit-transform: translateX(5px);
+    -moz-transform: translateX(5px);
+    -ms-transform: translateX(5px);
 }
 
 h2 {
@@ -221,19 +231,4 @@ h2 {
     margin: 0px;
     margin-bottom: 10px;
     font-size: 2em;
-}
-
-@keyframes scrollWiggle {
-    25% {
-        transform: translateX(5px);
-        -webkit-transform: translateX(5px);
-        -moz-transform: translateX(5px);
-        -ms-transform: translateX(5px);
-    }
-    75% {
-        transform: translateX(-5px);
-        -webkit-transform: translateX(-5px);
-        -moz-transform: translateX(-5px);
-        -ms-transform: translateX(-5px);
-    }
 }
