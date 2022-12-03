@@ -179,8 +179,9 @@ main {
     left: 10px;
     top: calc(var(--header-height) + 10px);
     bottom: calc(var(--footer-height) + 10px);
-    background-color: rgb(255, 255, 255);
+    background-color: var(--element-color);
     border-radius: 20px;
+    border: solid rgba(0, 0, 0, 0.11) 15px;
     box-shadow: 0px 0px 10px var(--element-shadow-color);
     padding: 15px;
     overflow: scroll;
@@ -207,22 +208,24 @@ main::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     position:fixed;
-    left: 10px;
-    right: 10px;
-    padding-top: 15px;
-    border-radius: 0px 0px 20px 20px;
+    left: 25px;
+    right: 25px;
+    margin-bottom: 15px;
+    padding: 10px;
     bottom: calc(var(--footer-height) + 10px);
     z-index: 97;
-    background: linear-gradient(transparent, rgb(255, 255, 255) 25px);
+    font-weight:900;
+    font-size: 1.25em;
+    background: radial-gradient(rgba(221, 221, 221, 0.8) 40%, transparent)
 }
 
 .mainFadeBot * {
-    font-weight: bolder;
     padding: 0;
     margin: 0;
 }
 
 .mainFadeTop {
+    display: none;
     position: fixed;
     left: 10px;
     right: 10px;
@@ -234,7 +237,7 @@ main::-webkit-scrollbar {
 }
 h2 {
     text-align: center;
-    margin: 10px;
-    margin-bottom: 20px;
+    margin: 0px;
+    margin-bottom: 10px;
     font-size: 2em;
 }
