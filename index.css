@@ -7,6 +7,7 @@
     --highlight-background: rgba(0, 0, 0, 0.2);
     --double-highlight: rgba(0, 0, 0, 0.4);
     --menubars-height: 5px; /*change menu icon bars width here to automatically adjust other parameters*/
+    --form-input-height: 30px;
 }
 
 * {
@@ -208,7 +209,7 @@ a:active {
 }
 
 main {
-    display: block;
+    display: grid;
     position: fixed;
     right: 10px;
     left: 10px;
@@ -220,16 +221,26 @@ main {
     box-shadow: 0px 0px 10px var(--element-shadow-color);
     padding: 10px;
     overflow: scroll;
+    overflow-x: hidden;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     -moz-backdrop-filter: blur(5px);
     -ms-backdrop-filter: blur(5px);
     -ms-overflow-style: none;
     scrollbar-width: none;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+    grid-auto-flow: row;
+    align-items: flex-start;
 }
 
 main::-webkit-scrollbar {
     display: none;
+}
+
+main > * {
+    grid-column: span 2;
 }
 
 #scrollArrow {
@@ -276,11 +287,15 @@ h2 {
     text-align: center;
     margin: 0px;
     margin-bottom: 10px;
+    margin-top: 10px;
     font-size: 2em;
 }
 
 p {
     margin: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-indent: 15%;
 }
 
 .contentCard {
@@ -294,11 +309,130 @@ h3 {
     text-align: center;
     margin: 0px;
     margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 1.25em;
 }
 
-article {
-    margin: 0px;
+label {
+    display: block;
+    line-height: var(--form-input-height);
+    width: 100%;
+    text-align: center;
     margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+input {
+    border: none;
+    background-color: var(--element-color);
+    box-shadow: 0px 0px 5px var(--element-shadow-color);
+    border-radius: 20px;
+    height: var(--form-input-height);
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    text-align: center;
+    color: black;
+}
+
+input:focus {
+    background-color: var(--double-highlight);
+    color: white;
+}
+
+.nameIn {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.nameBox {
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+}
+
+.radioBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 20px;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px var(--element-shadow-color);
+    overflow: hidden;
+}
+
+.radioBox input {
+    display: none;
+}
+
+.radioBox label {
+    background-color: var(--element-color);
+    margin: 0;
+}
+
+input[type="radio"]:checked+label{ 
+    background-color: var(--double-highlight);
+    color: white;
+} 
+
+select {
+    width: 100%;
+    height: var(--form-input-height);
+    border: none;
+    box-shadow: 0px 0px 5px var(--element-shadow-color);
+    border-radius: 20px;
+    text-align: center;
+    background-color: var(--element-color);
+}
+
+select:focus {
+    background-color: var(--double-highlight);
+    color: white;
+}
+
+.subResBox {
+    height: var(--form-input-height);
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.subResBtns:focus {
+    color: black;
+}
+
+input[type="submit"] {
+    background-color: var(--element-color);
+}
+
+input[type="reset"] {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+input[type="submit"]:active, input[type="reset"]:active {
+    background-color: var(--double-highlight);
+    color: white;
+}
+
+textarea {
+    background-color: var(--element-color);
+    width: 100%;
+    height: 250px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px var(--element-shadow-color);
+    resize: none;
+}
+
+textarea:focus {
+    background-color: var(--double-highlight);
+    color: white;
 }
 
 @media only screen and (min-width: 768px) {
@@ -307,6 +441,7 @@ article {
         --footer-height: 100px;
         --navLinkHeight: 50px;
         --menubars-height: 7px; /*change menu icon bars width here to automatically adjust other parameters*/
+        --form-input-height: 40px;
     }
     h1 {
         font-size: 2.5em;
@@ -314,6 +449,21 @@ article {
     }
     footer {
         font-size: 1em;
+    }
+    p {
+        font-size: 1.25em;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    label {
+        font-size: 1.25em;
+    }
+    input {
+        font-size: 1.25em;
+    }
+    textarea {
+        font-size: 1.25em;
     }
 }
 @media only screen and (min-width: 1200px) {
@@ -346,5 +496,11 @@ article {
     }
     footer {
         font-size: 1em;
+    }
+    p {
+        font-size: 1.5em;
+    }
+    main > * {
+        grid-column: span 1;
     }
 }

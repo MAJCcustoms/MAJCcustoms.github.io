@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <Title>Node_</Title>
+        <meta charset="utf-8">
+        <meta name="description" content="A website for all of my projects. Created by Cody Harfert">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="index.css" rel="stylesheet">
+        <link rel="icon" type="image/svg+xml" href="resources/Images/Site/IconGrey.svg">
+    </head>
+    <body>
+        <header>
+            <div class="header">
+                <div class="logo">
+                    <img src="resources/Images/Site/Icon.svg">
+                </div>
+                <h1>Node_</h1>
+                <button class="menuBtn" onclick="pulloutMenu()">
+                    <div class="menuIcn top"></div>
+                    <div class="menuIcn mid"></div>
+                    <div class="menuIcn bot"></div>
+                </button>
+            </div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">CAD / 3D Modeling</a></li>
+                    <li><a href="#">3D Printing</a></li>
+                    <li><a href="#">Photography</a></li>
+                    <li class="activepage"><a href="#">About Me</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="content">
+            <article>
+                <h2>About Me</h2>
+                <p>
+                    Currently I am attending Collin College and expect to graduate with my Associate's of Science
+                    after the Fall semester of 2022. I do plan to transfer to another university to pursue a degree 
+                    in engineering or product design. In between semesters I plan to obtain my A+ certificate, and work
+                    as some sort of computer or electronics technician. I also have several ideas for products that I 
+                    would like to bring to fruition soon.
+                </p>
+                <p>
+                    My interests are eclectic and vary from time to time. I often find myself learning something new
+                    or having an idea that requires additional knowledge and fully investing into it for weeks to months
+                    at a time. Though it is not healthy, I often find myself forgetting to eat, sleep, and drink when
+                    I am fully invested in a project or learning endeavor. I get so absorbed in asking myself questions
+                    and challenging myself to find answers and solve problems, that I have spent many sleepless nights
+                    reading manufacturing spec sheets, sifting through tutorials, reviews, and watching many long-form
+                    videos about the in-depth mechanics of the topic I'm researching. 
+                </p>
+                <p>
+                    Currently, the interests that I have taken on as hobbies include prop works, electronics and 
+                    electronics repair, video games, computers and computer building, 3D printing and 3D modeling, 
+                    photography, and audio gear. 
+                </p>
+                <p>
+                    Many of these hobbies have even turned into business opportunities, and I was managing an online 
+                    business doing 3D modeling, 3D printing, electronics, and prop work at the age of 14. Since then 
+                    I have slowly gotten more and more busy in life and now only occasionally accept commissions when
+                    I have the free time and a market to capitalize on. I am 24 as of the time of writing and have kept
+                    up with my main hobbies all this time and now have quite a bit of experience in many of these areas.
+                </p>
+                <p>
+                    I'm not one to hoard knowledge, or turn down a great job opportunity. If you would like to ask any
+                    questions, or like my work and would like to hire or commission me, please fill out the contact form.
+                </p>
+            </article>
+            <div class="contentCard" id="contact">
+                <h3>Contact Me</h3>
+                <form id="contactMe" name="contactMe" action="feedback.php" method="post">
+                    <div class="nameBox">
+                        <div class="nameIn">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name="fname" placeholder="John" required>
+                        </div>
+                        <div class="nameIn">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="lname" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <label for="email">Enter your email</label>
+                    <input type="email" id="email" name="email" placeholder="me@example.com" required>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What's this message about?" required>
+                    <label for="message">Write your message here</label>
+                    <textarea id="message" name="message" placeholder="Be as mean as you like. I'll be honest, this form doesn't even work yet." required></textarea>
+                    <div class="subResBox">
+                        <input class="subResBtns" type="submit" value="Submit">
+                        <input class="subResBtns" type="reset" value="Clear">
+                    </div>
+                </form>
+            </div>
+        </main> 
+        <div id="scrollArrow">&#10095;</div> 
+        <footer>
+            <div class="createdBy">
+                Webpage Created By - Cody Harfert
+            </div>
+            <div class="lastUpdated">
+                Last updated - 12/1/22
+            </div>
+            <div class="contact">
+                <a href="aboutme.html#contact">Contact Me</a>
+            </div>
+        </footer>
+        <script src="index.js"></script>
+    </body>
+</html>
