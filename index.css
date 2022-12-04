@@ -6,6 +6,7 @@
     --navLinkHeight: 50px;
     --highlight-background: rgba(0, 0, 0, 0.2);
     --double-highlight: rgba(0, 0, 0, 0.4);
+    --menubars-height: 5px; /*change menu icon bars width here to automatically adjust other parameters*/
 }
 
 * {
@@ -67,7 +68,7 @@ footer {
 }
 
 .logo {
-    height: var(--header-height);
+    height: 100%;
     margin: 0;
     padding: 10px;
     display: block;
@@ -100,7 +101,6 @@ h1 {
 }
 
 .menuIcn {
-    --menubars-height: 5px; /*change menu icon bars width here to automatically adjust other parameters*/
     background-color: black;
     height: var(--menubars-height);
     width: 100%;
@@ -216,16 +216,16 @@ main {
     bottom: calc(var(--footer-height) + 10px);
     background-color: var(--element-color);
     border-radius: 20px;
-    border: solid rgba(0, 0, 0, 0.11) 15px;
+    border: solid rgba(0, 0, 0, 0.11) 10px;
     box-shadow: 0px 0px 10px var(--element-shadow-color);
-    padding: 15px;
+    padding: 10px;
     overflow: scroll;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     -moz-backdrop-filter: blur(5px);
     -ms-backdrop-filter: blur(5px);
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 main::-webkit-scrollbar {
@@ -270,9 +270,83 @@ main::-webkit-scrollbar {
     -ms-transform: translateX(30px);
 }
 
+#scrollArrow.noScroll {
+    display: none;
+}
+
 h2 {
     text-align: center;
     margin: 0px;
     margin-bottom: 10px;
     font-size: 2em;
+}
+
+p {
+    margin: 0px;
+}
+
+.contentCard {
+    background-color: var(--highlight-background);
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px var(--element-shadow-color);
+}
+
+h3 {
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+article {
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    :root {
+        --header-height: 75px;
+        --footer-height: 100px;
+        --navLinkHeight: 50px;
+        --menubars-height: 7px; /*change menu icon bars width here to automatically adjust other parameters*/
+    }
+    h1 {
+        font-size: 2.5em;
+        margin-left: 20px;
+    }
+    footer {
+        font-size: 1em;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    :root {
+        --header-height: 50px;
+        --navLinkHeight: var(--header-height);
+    }
+    .nav {
+        max-height: var(--navLinkHeight);
+        opacity: 100%;
+        line-height: var(--navLinkHeight);
+    }
+    .nav ul {
+        flex-direction: row;
+    }
+    .nav li {
+        flex: 1;
+    }
+    .menuBtn {
+        display: none;
+    }
+    h1 {
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: var(--header-height);
+        font-size: 2em;
+    }
+    main {
+        top: calc((2 * var(--header-height)) + 10px);
+    }
+    footer {
+        font-size: 1em;
+    }
 }

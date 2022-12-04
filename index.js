@@ -13,7 +13,15 @@ mainBlock.onscroll = function() {
 scrollArrow.onload = scrollAnimation();
 
 function scrollAnimation() {
-    if (scrollState >= 200) {
+    var isOverflowing = mainBlock.clientHeight < mainBlock.scrollHeight;
+    console.log(isOverflowing);
+    if (!isOverflowing) {
+        scrollArrow.classList.add("noScroll");
+    }
+    else if (isOverflowing) {
+        scrollArrow.classList.remove("noScroll");
+    }
+    if (scrollState > 0) {
         scrollArrow.classList.remove("scrollArrowDown");
         scrollArrow.classList.remove("scrollArrowUp");
         scrollArrow.classList.add("scrollArrowGone");
