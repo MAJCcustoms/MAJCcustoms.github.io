@@ -146,10 +146,10 @@ a {
     text-decoration: none;
     color: black;
     background-color: var(--highlight-background);
-    padding: 2.5px;
+    padding: 1.5px;
     padding-left: 8px;
     padding-right: 8px;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 a:hover {
@@ -435,6 +435,47 @@ textarea:focus {
     color: white;
 }
 
+.code {
+    display: block;
+    border: none;
+    background-color: var(--element-color);
+    box-shadow: 0px 0px 5px var(--element-shadow-color);
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+    color: black;
+}
+
+.gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.galColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    flex-basis: 100%;
+}
+
+.galItem {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px var(--element-shadow-color);
+}
+
+.galItem > * {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
 @media only screen and (min-width: 768px) {
     :root {
         --header-height: 75px;
@@ -464,6 +505,12 @@ textarea:focus {
     }
     textarea {
         font-size: 1.25em;
+    }
+    .code {
+        font-size: 1.25em;
+    }
+    .galColumn {
+        flex-basis: 45%;
     }
 }
 @media only screen and (min-width: 1200px) {
@@ -502,5 +549,10 @@ textarea:focus {
     }
     main > * {
         grid-column: span 1;
+    }
+}
+@media only screen and (min-width: 2000px) {
+    .galColumn {
+        flex-basis: 20%;
     }
 }

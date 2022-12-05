@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <Title>Node_ 3D Printing</Title>
+        <meta charset="utf-8">
+        <meta name="description" content="A website for all of my projects. Created by Cody Harfert">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="index.css" rel="stylesheet">
+        <link rel="icon" type="image/svg+xml" href="resources/Images/Site/IconGrey.svg">
+    </head>
+    <body>
+        <header>
+            <div class="header">
+                <div class="logo">
+                    <img src="resources/Images/Site/Icon.svg" alt="Node_ Logo">
+                </div>
+                <h1>Node_</h1>
+                <button class="menuBtn" onclick="pulloutMenu()">
+                    <div class="menuIcn top"></div>
+                    <div class="menuIcn mid"></div>
+                    <div class="menuIcn bot"></div>
+                </button>
+            </div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cad.html">CAD / 3D Modeling</a></li>
+                    <li class="activepage"><a href="#">3D Printing</a></li>
+                    <li><a href="photography.html">Photography</a></li>
+                    <li><a href="aboutme.html">About Me</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="content">
+            <article>
+                <h2>3D Printing</h2>
+                <h3>What is it?</h3>
+                <p>
+                    what is it placeholder
+                </p>
+            </article>
+            <div class="contentCard">
+                <h3>My Settings</h3>
+                <label>My Start Gcode (PrusaSlicer, RepRapFW)</label>
+                <div id="startGcode" class="code">
+                    T0;<br>
+                    M220 S100;<br>
+                    M221 S100;<br>
+                    G90; absolute<br>
+                    G28;<br>
+                    G1 X0 Y210 Z50 F3000 ;<br>
+                    M140 S[first_layer_bed_temperature] ; set bed temp<br>
+                    M104 S150 ;<br>
+                    M116; wait<br>
+                    M561;<br>
+                    G28 Z;<br>
+                    G29;<br>
+                    G1 X0 Y210 Z50 F3000;<br>
+                    M104 S[first_layer_temperature] ; set extruder temp<br>
+                    M116;<br>
+                    G92 E0.0;<br>
+                    G1 X5 Y5 Z0.3 F3000;<br>
+                    G1 X5 Y210 Z0.3 E15 F1500;<br>
+                    G1 X6 Y210 Z0.3 F1500;<br>
+                    G1 X6 Y5 Z0.3 E30 F1500;<br>
+                    G91;<br>
+                    G1 X2.0 E-1.0 F3000;<br>
+                    G1 Z5 F1500;<br>
+                    G90;<br>
+                    G92 E0.0;<br>
+                </div>
+                <label>My End Gcode (PrusaSlicer, RepRapFW)</label>
+                <div id="endGcode" class="code">
+                    M83;<br>
+                    G91 ;Relative positioning<br>
+                    G1 E-1 Z0.2 F2400 ;Retract and raise Z<br>
+                    G1 X5 Y5 F3000 ;Wipe out<br>
+                    G1 Z10 ;Raise Z more<br>
+                    G90 ;Absolute positioning<br>
+                    G1 X0 Y210 ;Present print<br>
+                    M0;<br>
+                </div>
+                <label>Misc. Gcode for Layer Changes (PrusaSlicer, RepRapFW)</label>
+                <div id="betLayGcode" class="code">
+                    ;Currently I use this for calibrating temperatures on custom models and running RepRapFW pressure advance calibrations.<br>
+                    <br>
+                    ;BEFORE_LAYER_CHANGE<br>
+                    G92 E0<br>
+                    ;[layer_z]<br>
+                    <br>
+                    ;Temp Tower Gcode For ABS-PETG (make sure ALL layers are at 0.2mm. even first layer)<br>
+                    ;{if layer_z == 10}M104 S255<br>
+                    ;{elsif layer_z == 20}M104 S250<br>
+                    ;{elsif layer_z == 30}M104 S245<br>
+                    ;{elsif layer_z == 40}M104 S240<br>
+                    ;{elsif layer_z == 50}M104 S235<br>
+                    ;{elsif layer_z == 60}M104 S230<br>
+                    ;{elsif layer_z == 70}M104 S225<br>
+                    ;{elsif layer_z == 80}M104 S220<br>
+                    ;{elsif layer_z == 90}M104 S215<br>
+                    ;{endif}<br>
+                    <br>
+                    ;Pressure Advance Calibration (make sure ALL layers are at 0.2mm. even first layer)<br>
+                    ;{if layer_num == 1}M572 D0 S0.00<br>
+                    ;{elsif layer_z == 5}M572 D0 S0.005<br>
+                    ;{elsif layer_z == 10}M572 D0 S0.01<br>
+                    ;{elsif layer_z == 15}M572 D0 S0.015<br>
+                    ;{elsif layer_z == 20}M572 D0 S0.02<br>
+                    ;{elsif layer_z == 25}M572 D0 S0.025<br>
+                    ;{elsif layer_z == 30}M572 D0 S0.03<br>
+                    ;{elsif layer_z == 35}M572 D0 S0.035<br>
+                    ;{elsif layer_z == 40}M572 D0 S0.04<br>
+                    ;{elsif layer_z == 45}M572 D0 S0.045<br>
+                    ;{elsif layer_z == 50}M572 D0 S0.05<br>
+                    ;{elsif layer_z == 55}M572 D0 S0.055<br>
+                    ;{elsif layer_z == 60}M572 D0 S0.06<br>
+                    ;{elsif layer_z == 65}M572 D0 S0.065<br>
+                    ;{elsif layer_z == 70}M572 D0 S0.07<br>
+                    ;{elsif layer_z == 75}M572 D0 S0.075<br>
+                    ;{endif}<br>
+                </div>
+            </div>
+        </main> 
+        <div id="scrollArrow">&#10095;</div> 
+        <footer>
+            <div class="createdBy">
+                Webpage Created By - Cody Harfert
+            </div>
+            <div class="lastUpdated">
+                Last updated - 12/4/22
+            </div>
+            <div class="contact">
+                <a href="aboutme.html#contact">Contact Me</a>
+            </div>
+        </footer>
+        <script src="index.js"></script>
+    </body>
+</html>
